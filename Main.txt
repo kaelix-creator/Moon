@@ -346,7 +346,7 @@ local redzlib = {
 			["contrast"] = "rbxassetid://10709811939",
 			["cookie"] = "rbxassetid://10709812067",
 			["copy"] = "rbxassetid://10709812159",
-			["copyleft"] = "rbxassetid://10709812251",
+			["copyleft"] = "rbxassetid://10709791523",
 			["copyright"] = "rbxassetid://10709812311",
 			["cornerdownleft"] = "rbxassetid://10709812396",
 			["cornerdownright"] = "rbxassetid://10709812485",
@@ -910,7 +910,7 @@ local redzlib = {
 			["users"] = "rbxassetid://10747373426",
 			["utensils"] = "rbxassetid://10747373821",
 			["utensilscrossed"] = "rbxassetid://10747373629",
-			["venetianmask"] = "rbxassetid://10747374003",
+				["venetianmask"] = "rbxassetid://10747374003",
 			["verified"] = "rbxassetid://10747374131",
 			["vibrate"] = "rbxassetid://10747374489",
 			["vibrateoff"] = "rbxassetid://10747374269",
@@ -1350,7 +1350,7 @@ local function ButtonFrame(Instance, Title, Description, HolderSize)
 	}), "DarkText")
 
 	local Frame = Make("Button", Instance, {
-		Size = UDim2.new(1, 0, 0, 30),
+		Size = UDim2.new(1, 0, 0, 35),
 		AutomaticSize = "Y",
 		Name = "Option"
 	})Make("Corner", Frame, UDim.new(0, 6))
@@ -2172,7 +2172,7 @@ function redzlib:MakeWindow(Configs)
 		end
 		
 		local TabSelect = Make("Button", MainScroll, {
-			Size = UDim2.new(1, 0, 0, 28)
+			Size = UDim2.new(1, 0, 0, 32)
 		})Make("Corner", TabSelect)
 		
 		local LabelTitle = InsertTheme(Create("TextLabel", TabSelect, {
@@ -2225,7 +2225,7 @@ function redzlib:MakeWindow(Configs)
 				PaddingTop = UDim.new(0, 10),
 				PaddingBottom = UDim.new(0, 10)
 			}), Create("UIListLayout", {
-				Padding = UDim.new(0, 8)
+				Padding = UDim.new(0, 10)
 			})
 		}), "ScrollBar")
 		
