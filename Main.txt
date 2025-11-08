@@ -1,3 +1,5 @@
+-- Minha Versão única - Magnus Modificações 
+-- Ser tive outro igual, e meu ramake rsrsrs
 local MarketplaceService = game:GetService("MarketplaceService")
 local UserInputService = game:GetService("UserInputService")
 local TweenService = game:GetService("TweenService")
@@ -10,6 +12,45 @@ local PlayerMouse = Player:GetMouse()
 
 local redzlib = {
 	Themes = {
+		Darker = {
+			["Color Hub 1"] = ColorSequence.new({
+				ColorSequenceKeypoint.new(0.00, Color3.fromRGB(0, 15, 25)),
+				ColorSequenceKeypoint.new(0.50, Color3.fromRGB(0, 30, 45)),
+				ColorSequenceKeypoint.new(1.00, Color3.fromRGB(0, 15, 25))
+			}),
+			["Color Hub 2"] = Color3.fromRGB(0, 20, 30),
+			["Color Stroke"] = Color3.fromRGB(0, 80, 120),
+			["Color Theme"] = Color3.fromRGB(0, 150, 220),
+			["Color Text"] = Color3.fromRGB(170, 230, 255),
+			["Color Dark Text"] = Color3.fromRGB(120, 200, 240)
+		},
+		Dark = {
+			["Color Hub 1"] = ColorSequence.new({
+				ColorSequenceKeypoint.new(0.00, Color3.fromRGB(0, 18, 28)),
+				ColorSequenceKeypoint.new(0.50, Color3.fromRGB(0, 35, 50)),
+				ColorSequenceKeypoint.new(1.00, Color3.fromRGB(0, 18, 28))
+			}),
+			["Color Hub 2"] = Color3.fromRGB(0, 25, 35),
+			["Color Stroke"] = Color3.fromRGB(0, 100, 150),
+			["Color Theme"] = Color3.fromRGB(0, 170, 255),
+			["Color Text"] = Color3.fromRGB(180, 240, 255),
+			["Color Dark Text"] = Color3.fromRGB(140, 220, 255)
+		},
+		Blue = {
+			["Color Hub 1"] = ColorSequence.new({
+				ColorSequenceKeypoint.new(0.00, Color3.fromRGB(0, 20, 30)),
+				ColorSequenceKeypoint.new(0.50, Color3.fromRGB(0, 40, 60)),
+				ColorSequenceKeypoint.new(1.00, Color3.fromRGB(0, 20, 30))
+			}),
+			["Color Hub 2"] = Color3.fromRGB(0, 30, 45),
+			["Color Stroke"] = Color3.fromRGB(0, 120, 180),
+			["Color Theme"] = Color3.fromRGB(0, 180, 255),
+			["Color Text"] = Color3.fromRGB(190, 240, 255),
+			["Color Dark Text"] = Color3.fromRGB(150, 220, 255),
+			["Color Dark Blue"] = Color3.fromRGB(0, 140, 210),
+			["Color Hub 9"] = Color3.fromRGB(0, 0, 0),
+			["Color Dark Cyan"] = Color3.fromRGB(0, 160, 220)
+		},
 		Red = {
 			["Color Hub 1"] = ColorSequence.new({
 				ColorSequenceKeypoint.new(0.00, Color3.fromRGB(25, 0, 0)),
@@ -25,25 +66,10 @@ local redzlib = {
 			["Color Hub 9"] = Color3.fromRGB(0, 0, 0),
 			["Color Dark Cyan"] = Color3.fromRGB(220, 0, 0)
 		},
-		Blue = {
-			["Color Hub 1"] = ColorSequence.new({
-				ColorSequenceKeypoint.new(0.00, Color3.fromRGB(0, 15, 25)),
-				ColorSequenceKeypoint.new(0.50, Color3.fromRGB(0, 30, 45)),
-				ColorSequenceKeypoint.new(1.00, Color3.fromRGB(0, 15, 25))
-			}),
-			["Color Hub 2"] = Color3.fromRGB(0, 20, 30),
-			["Color Stroke"] = Color3.fromRGB(0, 80, 120),
-			["Color Theme"] = Color3.fromRGB(0, 150, 220),
-			["Color Text"] = Color3.fromRGB(170, 230, 255),
-			["Color Dark Text"] = Color3.fromRGB(120, 200, 240),
-			["Color Dark Blue"] = Color3.fromRGB(0, 140, 210),
-			["Color Hub 9"] = Color3.fromRGB(0, 0, 0),
-			["Color Dark Cyan"] = Color3.fromRGB(0, 160, 220)
-		},
 		Purple = {
 			["Color Hub 1"] = ColorSequence.new({
 				ColorSequenceKeypoint.new(0.00, Color3.fromRGB(15, 0, 25)),
-				ColorSequenceKeypoint.new(0.50, Color3.fromRGB(25, 0, 45)),
+				ColorSequenceKeypoint.new(0.50, Color3.fromRGB(30, 0, 45)),
 				ColorSequenceKeypoint.new(1.00, Color3.fromRGB(15, 0, 25))
 			}),
 			["Color Hub 2"] = Color3.fromRGB(20, 0, 30),
@@ -54,6 +80,21 @@ local redzlib = {
 			["Color Dark Blue"] = Color3.fromRGB(140, 0, 210),
 			["Color Hub 9"] = Color3.fromRGB(0, 0, 0),
 			["Color Dark Cyan"] = Color3.fromRGB(160, 0, 220)
+		},
+		Yellow = {
+			["Color Hub 1"] = ColorSequence.new({
+				ColorSequenceKeypoint.new(0.00, Color3.fromRGB(25, 25, 0)),
+				ColorSequenceKeypoint.new(0.50, Color3.fromRGB(45, 45, 0)),
+				ColorSequenceKeypoint.new(1.00, Color3.fromRGB(25, 25, 0))
+			}),
+			["Color Hub 2"] = Color3.fromRGB(30, 30, 0),
+			["Color Stroke"] = Color3.fromRGB(120, 120, 0),
+			["Color Theme"] = Color3.fromRGB(220, 220, 0),
+			["Color Text"] = Color3.fromRGB(255, 255, 170),
+			["Color Dark Text"] = Color3.fromRGB(240, 240, 120),
+			["Color Dark Blue"] = Color3.fromRGB(210, 210, 0),
+			["Color Hub 9"] = Color3.fromRGB(0, 0, 0),
+			["Color Dark Cyan"] = Color3.fromRGB(220, 220, 0)
 		},
 		Green = {
 			["Color Hub 1"] = ColorSequence.new({
@@ -70,35 +111,65 @@ local redzlib = {
 			["Color Hub 9"] = Color3.fromRGB(0, 0, 0),
 			["Color Dark Cyan"] = Color3.fromRGB(0, 220, 0)
 		},
+		DarkBlue = {
+			["Color Hub 1"] = ColorSequence.new({
+				ColorSequenceKeypoint.new(0.00, Color3.fromRGB(0, 0, 25)),
+				ColorSequenceKeypoint.new(0.50, Color3.fromRGB(0, 0, 45)),
+				ColorSequenceKeypoint.new(1.00, Color3.fromRGB(0, 0, 25))
+			}),
+			["Color Hub 2"] = Color3.fromRGB(0, 0, 30),
+			["Color Stroke"] = Color3.fromRGB(0, 0, 120),
+			["Color Theme"] = Color3.fromRGB(0, 0, 220),
+			["Color Text"] = Color3.fromRGB(170, 170, 255),
+			["Color Dark Text"] = Color3.fromRGB(120, 120, 240),
+			["Color Dark Blue"] = Color3.fromRGB(0, 0, 210),
+			["Color Hub 9"] = Color3.fromRGB(0, 0, 0),
+			["Color Dark Cyan"] = Color3.fromRGB(0, 0, 220)
+		},
 		Pink = {
 			["Color Hub 1"] = ColorSequence.new({
-				ColorSequenceKeypoint.new(0.00, Color3.fromRGB(25, 0, 15)),
-				ColorSequenceKeypoint.new(0.50, Color3.fromRGB(45, 0, 25)),
-				ColorSequenceKeypoint.new(1.00, Color3.fromRGB(25, 0, 15))
+				ColorSequenceKeypoint.new(0.00, Color3.fromRGB(25, 0, 25)),
+				ColorSequenceKeypoint.new(0.50, Color3.fromRGB(45, 0, 45)),
+				ColorSequenceKeypoint.new(1.00, Color3.fromRGB(25, 0, 25))
 			}),
-			["Color Hub 2"] = Color3.fromRGB(30, 0, 20),
-			["Color Stroke"] = Color3.fromRGB(120, 0, 80),
-			["Color Theme"] = Color3.fromRGB(220, 0, 150),
-			["Color Text"] = Color3.fromRGB(255, 170, 230),
-			["Color Dark Text"] = Color3.fromRGB(240, 120, 200),
-			["Color Dark Blue"] = Color3.fromRGB(210, 0, 140),
+			["Color Hub 2"] = Color3.fromRGB(30, 0, 30),
+			["Color Stroke"] = Color3.fromRGB(120, 0, 120),
+			["Color Theme"] = Color3.fromRGB(220, 0, 220),
+			["Color Text"] = Color3.fromRGB(255, 170, 255),
+			["Color Dark Text"] = Color3.fromRGB(240, 120, 240),
+			["Color Dark Blue"] = Color3.fromRGB(210, 0, 210),
 			["Color Hub 9"] = Color3.fromRGB(0, 0, 0),
-			["Color Dark Cyan"] = Color3.fromRGB(220, 0, 160)
+			["Color Dark Cyan"] = Color3.fromRGB(220, 0, 220)
 		},
-		Yellow = {
+		White = {
 			["Color Hub 1"] = ColorSequence.new({
-				ColorSequenceKeypoint.new(0.00, Color3.fromRGB(25, 25, 0)),
-				ColorSequenceKeypoint.new(0.50, Color3.fromRGB(45, 45, 0)),
-				ColorSequenceKeypoint.new(1.00, Color3.fromRGB(25, 25, 0))
+				ColorSequenceKeypoint.new(0.00, Color3.fromRGB(25, 25, 25)),
+				ColorSequenceKeypoint.new(0.50, Color3.fromRGB(45, 45, 45)),
+				ColorSequenceKeypoint.new(1.00, Color3.fromRGB(25, 25, 25))
 			}),
-			["Color Hub 2"] = Color3.fromRGB(30, 30, 0),
-			["Color Stroke"] = Color3.fromRGB(120, 120, 0),
-			["Color Theme"] = Color3.fromRGB(220, 220, 0),
-			["Color Text"] = Color3.fromRGB(255, 255, 170),
-			["Color Dark Text"] = Color3.fromRGB(240, 240, 120),
-			["Color Dark Blue"] = Color3.fromRGB(210, 210, 0),
+			["Color Hub 2"] = Color3.fromRGB(30, 30, 30),
+			["Color Stroke"] = Color3.fromRGB(120, 120, 120),
+			["Color Theme"] = Color3.fromRGB(220, 220, 220),
+			["Color Text"] = Color3.fromRGB(255, 255, 255),
+			["Color Dark Text"] = Color3.fromRGB(240, 240, 240),
+			["Color Dark Blue"] = Color3.fromRGB(210, 210, 210),
 			["Color Hub 9"] = Color3.fromRGB(0, 0, 0),
-			["Color Dark Cyan"] = Color3.fromRGB(220, 220, 0)
+			["Color Dark Cyan"] = Color3.fromRGB(220, 220, 220)
+		},
+		Brown = {
+			["Color Hub 1"] = ColorSequence.new({
+				ColorSequenceKeypoint.new(0.00, Color3.fromRGB(25, 15, 0)),
+				ColorSequenceKeypoint.new(0.50, Color3.fromRGB(45, 25, 0)),
+				ColorSequenceKeypoint.new(1.00, Color3.fromRGB(25, 15, 0))
+			}),
+			["Color Hub 2"] = Color3.fromRGB(30, 20, 0),
+			["Color Stroke"] = Color3.fromRGB(120, 80, 0),
+			["Color Theme"] = Color3.fromRGB(220, 150, 0),
+			["Color Text"] = Color3.fromRGB(255, 220, 170),
+			["Color Dark Text"] = Color3.fromRGB(240, 180, 120),
+			["Color Dark Blue"] = Color3.fromRGB(210, 140, 0),
+			["Color Hub 9"] = Color3.fromRGB(0, 0, 0),
+			["Color Dark Cyan"] = Color3.fromRGB(220, 150, 0)
 		}
 	},
 	Info = {
@@ -344,7 +415,7 @@ local redzlib = {
 			["contrast"] = "rbxassetid://10709811939",
 			["cookie"] = "rbxassetid://10709812067",
 			["copy"] = "rbxassetid://10709812159",
-			["copyleft"] = "rbxassetid://10709791523",
+			["copyleft"] = "rbxassetid://10709812251",
 			["copyright"] = "rbxassetid://10709812311",
 			["cornerdownleft"] = "rbxassetid://10709812396",
 			["cornerdownright"] = "rbxassetid://10709812485",
@@ -908,7 +979,7 @@ local redzlib = {
 			["users"] = "rbxassetid://10747373426",
 			["utensils"] = "rbxassetid://10747373821",
 			["utensilscrossed"] = "rbxassetid://10747373629",
-				["venetianmask"] = "rbxassetid://10747374003",
+			["venetianmask"] = "rbxassetid://10747374003",
 			["verified"] = "rbxassetid://10747374131",
 			["vibrate"] = "rbxassetid://10747374489",
 			["vibrateoff"] = "rbxassetid://10747374269",
@@ -1243,6 +1314,7 @@ local function SaveJson(FileName, save)
 end
 
 local Theme = redzlib.Themes[redzlib.Save.Theme]
+local ActiveParticles = {}
 
 local function AddEle(Name, Func)
 	redzlib.Elements[Name] = Func
@@ -1255,7 +1327,7 @@ end
 
 AddEle("Corner", function(parent, CornerRadius)
 	local New = SetProps(Create("UICorner", parent, {
-		CornerRadius = CornerRadius or UDim.new(0, 7)
+		CornerRadius = CornerRadius or UDim.new(0, 12)
 	}), props)
 	return New
 end)
@@ -1348,10 +1420,10 @@ local function ButtonFrame(Instance, Title, Description, HolderSize)
 	}), "DarkText")
 
 	local Frame = Make("Button", Instance, {
-		Size = UDim2.new(1, 0, 0, 35),
+		Size = UDim2.new(1, 0, 0, 25),
 		AutomaticSize = "Y",
 		Name = "Option"
-	})Make("Corner", Frame, UDim.new(0, 6))
+	})Make("Corner", Frame, UDim.new(0, 8))
 	
 	LabelHolder = Create("Frame", Frame, {
 		AutomaticSize = "Y",
@@ -1398,19 +1470,89 @@ local function ButtonFrame(Instance, Title, Description, HolderSize)
 	return Frame, Label
 end
 
-local function GetColor(Instance)
-	if Instance:IsA("Frame") then
-		return "BackgroundColor3"
-	elseif Instance:IsA("ImageLabel") then
-		return "ImageColor3"
-	elseif Instance:IsA("TextLabel") then
-		return "TextColor3"
-	elseif Instance:IsA("ScrollingFrame") then
-		return "ScrollBarImageColor3"
-	elseif Instance:IsA("UIStroke") then
-		return "Color"
+-- Função para atualizar TODAS as instâncias quando o tema muda
+function redzlib:UpdateAllInstances()
+	Theme = redzlib.Themes[redzlib.Save.Theme]
+	
+	-- Atualizar todas as instâncias registradas
+	for _, instanceData in pairs(self.Instances) do
+		local instance = instanceData.Instance
+		local instanceType = instanceData.Type
+		
+		if instance and instance.Parent then
+			if instanceType == "Gradient" then
+				instance.Color = Theme["Color Hub 1"]
+			elseif instanceType == "Frame" then
+				instance.BackgroundColor3 = Theme["Color Hub 2"]
+			elseif instanceType == "Stroke" then
+				instance.Color = Theme["Color Stroke"]
+			elseif instanceType == "Theme" then
+				instance.BackgroundColor3 = Theme["Color Theme"]
+			elseif instanceType == "Text" then
+				instance.TextColor3 = Theme["Color Text"]
+			elseif instanceType == "DarkText" then
+				instance.TextColor3 = Theme["Color Dark Text"]
+			elseif instanceType == "ScrollBar" then
+				instance.ScrollBarImageColor3 = Theme["Color Theme"]
+			elseif instanceType == "Main" then
+				-- Para a janela principal
+				if instance:FindFirstChildOfClass("UIGradient") then
+					instance:FindFirstChildOfClass("UIGradient").Color = Theme["Color Hub 1"]
+				end
+			elseif instanceType == "Button" then
+				instance.BackgroundColor3 = Theme["Color Hub 2"]
+			elseif instanceType == "ToggleHolder" then
+				instance.BackgroundColor3 = Theme["Color Stroke"]
+			elseif instanceType == "Selected" then
+				instance.BackgroundColor3 = Theme["Color Theme"]
+			elseif instanceType == "SliderBar" then
+				instance.BackgroundColor3 = Theme["Color Stroke"]
+			elseif instanceType == "SliderIndicator" then
+				instance.BackgroundColor3 = Theme["Color Theme"]
+			elseif instanceType == "DropdownFrame" then
+				instance.BackgroundColor3 = Theme["Color Hub 2"]
+			elseif instanceType == "SectionText" then
+				instance.TextColor3 = Theme["Color Dark Blue"]
+			elseif instanceType == "JoinButton" then
+				instance.BackgroundColor3 = Theme["Color Theme"]
+			end
+		end
 	end
-	return ""
+	
+	-- Atualizar também as partículas
+	if ActiveParticles then
+		for _, particleData in pairs(ActiveParticles) do
+			if particleData.Frame and particleData.Frame.Parent then
+				particleData.Frame.BackgroundColor3 = Theme["Color Theme"]
+				if particleData.Glow then
+					particleData.Glow.BackgroundColor3 = Theme["Color Theme"]
+				end
+			end
+		end
+	end
+	
+	-- Atualizar todos os elementos das tabs
+	for _, tabData in pairs(self.Tabs) do
+		if tabData.func and tabData.func.Cont and tabData.func.Cont.Parent then
+			-- Atualizar scrollbar das containers
+			if tabData.func.Cont:FindFirstChildOfClass("UIScrollBar") then
+				tabData.func.Cont.ScrollBarImageColor3 = Theme["Color Theme"]
+			end
+		end
+	end
+end
+
+-- Modificar a função SetTheme para chamar UpdateAllInstances
+function redzlib:SetTheme(NewTheme)
+	if not VerifyTheme(NewTheme) then return end
+	
+	redzlib.Save.Theme = NewTheme
+	SaveJson("redz library V5.json", redzlib.Save)
+	
+	-- Atualizar todas as instâncias
+	self:UpdateAllInstances()
+	
+	Connection:FireConnection("ThemeChanged", NewTheme)
 end
 
 -- /////////// --
@@ -1432,33 +1574,6 @@ function redzlib:GetIcon(index)
 	end
 	
 	return firstMatch or index
-end
-
-function redzlib:SetTheme(NewTheme)
-	if not VerifyTheme(NewTheme) then return end
-	
-	redzlib.Save.Theme = NewTheme
-	SaveJson("redz library V5.json", redzlib.Save)
-	Theme = redzlib.Themes[NewTheme]
-	
-	Connection:FireConnection("ThemeChanged", NewTheme)
-	table.foreach(redzlib.Instances, function(_,Val)
-		if Val.Type == "Gradient" then
-			Val.Instance.Color = Theme["Color Hub 1"]
-		elseif Val.Type == "Frame" then
-			Val.Instance.BackgroundColor3 = Theme["Color Hub 2"]
-		elseif Val.Type == "Stroke" then
-			Val.Instance[GetColor(Val.Instance)] = Theme["Color Stroke"]
-		elseif Val.Type == "Theme" then
-			Val.Instance[GetColor(Val.Instance)] = Theme["Color Theme"]
-		elseif Val.Type == "Text" then
-			Val.Instance[GetColor(Val.Instance)] = Theme["Color Text"]
-		elseif Val.Type == "DarkText" then
-			Val.Instance[GetColor(Val.Instance)] = Theme["Color Dark Text"]
-		elseif Val.Type == "ScrollBar" then
-			Val.Instance[GetColor(Val.Instance)] = Theme["Color Theme"]
-		end
-	end)
 end
 
 function redzlib:SetScale(NewScale)
@@ -1631,7 +1746,7 @@ function redzlib:MakeWindow(Configs)
 	Make("Gradient", MainFrame, {
 		Rotation = 45
 	})MakeDrag(MainFrame)
-	local MainCorner = Make("Corner", MainFrame)
+	local MainCorner = Make("Corner", MainFrame, UDim.new(0, 15))
 	local Components = Create("Folder", MainFrame, {
 		Name = "Components"
 	})
@@ -1694,7 +1809,7 @@ function redzlib:MakeWindow(Configs)
 			PaddingTop = UDim.new(0, 10),
 			PaddingBottom = UDim.new(0, 10)
 		}), Create("UIListLayout", {
-			Padding = UDim.new(0, 8)
+			Padding = UDim.new(0, 5)
 		})
 	}), "ScrollBar")
 	
@@ -1716,14 +1831,13 @@ function redzlib:MakeWindow(Configs)
 	})
 	
 	local ParticleConfig = {
-		MaxParticles = 47,
+		MaxParticles = 70,
 		SpawnRate = 0.1,
-		ParticleSize = {Min = 1, Max = 4},
-		ParticleSpeed = {Min = 1, Max = 4},
+		ParticleSize = {Min = 1, Max = 3},
+		ParticleSpeed = {Min = 2, Max = 3},
 		ParticleLifetime = 6
 	}
 
-	local ActiveParticles = {}
 	local LastSpawn = 0
 
 	local function CreateCyberpunkParticle()
@@ -1886,21 +2000,38 @@ function redzlib:MakeWindow(Configs)
 		Image = "rbxassetid://10734896206",
 		Name = "Minimize"
 	})
-
-	local ConfigButton = SetProps(CloseButton:Clone(), {
+	
+	-- Botão Personalizado para alternar temas
+	local CustomButton = SetProps(CloseButton:Clone(), {
 		Position = UDim2.new(1, -60, 0.5),
-		Image = "rbxassetid://10734950309",
-		Name = "Config"
+		Image = "rbxassetid://10734910430",
+		Name = "CustomButton"
 	})
-
+	
 	SetChildren(ButtonsFolder, {
 		CloseButton,
 		MinimizeButton,
-		ConfigButton
+		CustomButton
 	})
 	
 	local Minimized, SaveSize, WaitClick
 	local Window, FirstTab = {}, false
+	
+	-- Função para alternar entre temas
+	local function ToggleTheme()
+		local themes = {"Blue", "Red", "Purple", "Yellow", "Green", "DarkBlue", "Pink", "White", "Brown"}
+		local currentTheme = redzlib.Save.Theme
+		local currentIndex = table.find(themes, currentTheme) or 1
+		local newIndex = (currentIndex % #themes) + 1
+		local newTheme = themes[newIndex]
+		
+		redzlib:SetTheme(newTheme)
+		
+		-- Feedback visual no botão
+		CreateTween({CustomButton, "Rotation", 180, 0.3})
+		task.wait(0.3)
+		CreateTween({CustomButton, "Rotation", 0, 0.3})
+	end
 	
 	function Window:CloseBtn()
 		local Dialog = Window:Dialog({
@@ -1947,34 +2078,6 @@ function redzlib:MakeWindow(Configs)
 		WaitClick = false
 	end
 	
-	function Window:ConfigBtn()
-		local ConfigDialog = Window:Dialog({
-			Title = "Configurações de Tema",
-			Text = "Escolha o tema para a interface:",
-			Options = {
-				{"Red", function()
-					redzlib:SetTheme("Red")
-				end},
-				{"Blue", function()
-					redzlib:SetTheme("Blue")
-				end},
-				{"Purple", function()
-					redzlib:SetTheme("Purple")
-				end},
-				{"Green", function()
-					redzlib:SetTheme("Green")
-				end},
-				{"Pink", function()
-					redzlib:SetTheme("Pink")
-				end},
-				{"Yellow", function()
-					redzlib:SetTheme("Yellow")
-				end},
-				{"Cancel"}
-			}
-		})
-	end
-	
 	function Window:Minimize()
 		MainFrame.Visible = not MainFrame.Visible
 	end
@@ -1997,14 +2100,10 @@ function redzlib:MakeWindow(Configs)
 		end
 	end
 
-	function Window:Minimize()
-		MainFrame.Visible = not MainFrame.Visible
-	end
-
 	function Window:AddMinimizeButton(Configs)
 		local Button = MakeDrag(Create("ImageButton", ScreenGui, {
-			Size = UDim2.fromOffset(6, 6),
-			Position = UDim2.fromScale(0.30, 0.30),
+			Size = UDim2.fromOffset(12, 12),
+			Position = UDim2.fromScale(0.15, 0.15),
 			BackgroundTransparency = 1,
 			AutoButtonColor = false
 		}))
@@ -2079,7 +2178,7 @@ function redzlib:MakeWindow(Configs)
 				BackgroundTransparency = 1,
 				TextWrapped = true
 			}), "DarkText")
-		})Make("Gradient", Frame, {Rotation = 270})Make("Corner", Frame)
+		})Make("Gradient", Frame, {Rotation = 270})Make("Corner", Frame, UDim.new(0, 12))
 		
 		local ButtonsHolder = Create("Frame", Frame, {
 			Size = UDim2.fromScale(1, 0.35),
@@ -2118,7 +2217,7 @@ function redzlib:MakeWindow(Configs)
 			
 			ButtonCount = ButtonCount + 1
 			local Button = Make("Button", ButtonsHolder)
-			Make("Corner", Button)
+			Make("Corner", Button, UDim.new(0, 8))
 			SetProps(Button, {
 				Text = Name,
 				Font = Enum.Font.GothamBold,
@@ -2170,8 +2269,8 @@ function redzlib:MakeWindow(Configs)
 		end
 		
 		local TabSelect = Make("Button", MainScroll, {
-			Size = UDim2.new(1, 0, 0, 32)
-		})Make("Corner", TabSelect)
+			Size = UDim2.new(1, 0, 0, 24)
+		})Make("Corner", TabSelect, UDim.new(0, 8))
 		
 		local LabelTitle = InsertTheme(Create("TextLabel", TabSelect, {
 			Size = UDim2.new(1, TIcon and -25 or -15, 1),
@@ -2223,7 +2322,7 @@ function redzlib:MakeWindow(Configs)
 				PaddingTop = UDim.new(0, 10),
 				PaddingBottom = UDim.new(0, 10)
 			}), Create("UIListLayout", {
-				Padding = UDim.new(0, 10)
+				Padding = UDim.new(0, 5)
 			})
 		}), "ScrollBar")
 		
@@ -2278,7 +2377,7 @@ function redzlib:MakeWindow(Configs)
 			local SectionName = type(Configs) == "string" and Configs or Configs[1] or Configs.Name or Configs.Title or Configs.Section
 			
 			local SectionFrame = Create("Frame", Container, {
-				Size = UDim2.new(1, 0, 0, 25),
+				Size = UDim2.new(1, 0, 0, 20),
 				BackgroundTransparency = 1,
 				Name = "Option"
 			})
@@ -2293,7 +2392,7 @@ function redzlib:MakeWindow(Configs)
 				TextTruncate = "AtEnd",
 				TextSize = 11,
 				TextXAlignment = "Left"
-			}), "Text")
+			}), "SectionText")
 			
 			local Section = {}
 			table.insert(redzlib.Options, {type = "Section", Name = SectionName, func = Section})
@@ -2350,7 +2449,7 @@ function redzlib:MakeWindow(Configs)
 				Position = UDim2.new(1, -10, 0.5),
 				AnchorPoint = Vector2.new(1, 0.5),
 				BackgroundTransparency = 1,
-				Image = "rbxassetid://6422245657"
+				Image = "rbxassetid://"
 			})
 			
 			FButton.Activated:Connect(function()
@@ -2389,7 +2488,7 @@ function redzlib:MakeWindow(Configs)
 				Position = UDim2.new(1, -10, 0.5),
 				AnchorPoint = Vector2.new(1, 0.5),
 				BackgroundColor3 = Theme["Color Stroke"]
-			}), "Stroke")Make("Corner", ToggleHolder, UDim.new(0.5, 0))
+			}), "ToggleHolder")Make("Corner", ToggleHolder, UDim.new(0.5, 0))
 			
 			local Slider = Create("Frame", ToggleHolder, {
 				BackgroundTransparency = 1,
@@ -2466,7 +2565,7 @@ function redzlib:MakeWindow(Configs)
 				Position = UDim2.new(1, -10, 0.5),
 				AnchorPoint = Vector2.new(1, 0.5),
 				BackgroundColor3 = Theme["Color Stroke"]
-			}), "Stroke")Make("Corner", SelectedFrame, UDim.new(0, 4))
+			}), "Stroke")Make("Corner", SelectedFrame, UDim.new(0, 6))
 			
 			local ActiveLabel = InsertTheme(Create("TextLabel", SelectedFrame, {
 				Size = UDim2.new(0.85, 0, 0.85, 0),
@@ -2495,15 +2594,15 @@ function redzlib:MakeWindow(Configs)
 				Text = ""
 			})
 			
-			local DropFrame = Create("Frame", NoClickFrame, {
+			local DropFrame = InsertTheme(Create("Frame", NoClickFrame, {
 				Size = UDim2.new(SelectedFrame.Size.X, 0, 0),
 				BackgroundTransparency = 0.1,
-				BackgroundColor3 = Color3.fromRGB(255, 255, 255),
+				BackgroundColor3 = Theme["Color Hub 2"],
 				AnchorPoint = Vector2.new(0, 1),
 				Name = "DropdownFrame",
 				ClipsDescendants = true,
 				Active = true
-			})Make("Corner", DropFrame)Make("Stroke", DropFrame)Make("Gradient", DropFrame, {Rotation = 60})
+			}), "DropdownFrame")Make("Corner", DropFrame, UDim.new(0, 8))Make("Stroke", DropFrame)Make("Gradient", DropFrame, {Rotation = 60})
 			
 			local ScrollFrame = InsertTheme(Create("ScrollingFrame", DropFrame, {
 				ScrollBarImageColor3 = Theme["Color Theme"],
@@ -2678,7 +2777,7 @@ function redzlib:MakeWindow(Configs)
 						Size = UDim2.new(1, 0, 0, 21),
 						Position = UDim2.new(0, 0, 0.5),
 						AnchorPoint = Vector2.new(0, 0.5)
-					})Make("Corner", Button, UDim.new(0, 4))
+					})Make("Corner", Button, UDim.new(0, 6))
 					
 					local IsSelected = InsertTheme(Create("Frame", Button, {
 						Position = UDim2.new(0, 1, 0.5),
@@ -2686,7 +2785,7 @@ function redzlib:MakeWindow(Configs)
 						BackgroundColor3 = Theme["Color Theme"],
 						BackgroundTransparency = 1,
 						AnchorPoint = Vector2.new(0, 0.5)
-					}), "Theme")Make("Corner", IsSelected, UDim.new(0.5, 0))
+					}), "Selected")Make("Corner", IsSelected, UDim.new(0.5, 0))
 					
 					local OptioneName = InsertTheme(Create("TextLabel", Button, {
 						Size = UDim2.new(1, 0, 1),
@@ -2823,13 +2922,13 @@ function redzlib:MakeWindow(Configs)
 				Size = UDim2.new(1, -20, 0, 6),
 				Position = UDim2.new(0.5, 0, 0.5),
 				AnchorPoint = Vector2.new(0.5, 0.5)
-			}), "Stroke")Make("Corner", SliderBar)
+			}), "SliderBar")Make("Corner", SliderBar, UDim.new(0.5, 0))
 			
 			local Indicator = InsertTheme(Create("Frame", SliderBar, {
 				BackgroundColor3 = Theme["Color Theme"],
 				Size = UDim2.fromScale(0.3, 1),
 				BorderSizePixel = 0
-			}), "Theme")Make("Corner", Indicator)
+			}), "SliderIndicator")Make("Corner", Indicator, UDim.new(0.5, 0))
 			
 			local SliderIcon = Create("Frame", SliderBar, {
 				Size = UDim2.new(0, 6, 0, 12),
@@ -2837,7 +2936,7 @@ function redzlib:MakeWindow(Configs)
 				Position = UDim2.fromScale(0.3, 0.5),
 				AnchorPoint = Vector2.new(0.5, 0.5),
 				BackgroundTransparency = 0.2
-			})Make("Corner", SliderIcon)
+			})Make("Corner", SliderIcon, UDim.new(0.5, 0))
 			
 			local LabelVal = InsertTheme(Create("TextLabel", SliderHolder, {
 				Size = UDim2.new(0, 14, 0, 14),
@@ -2949,7 +3048,7 @@ function redzlib:MakeWindow(Configs)
 				Position = UDim2.new(1, -10, 0.5),
 				AnchorPoint = Vector2.new(1, 0.5),
 				BackgroundColor3 = Theme["Color Stroke"]
-			}), "Stroke")Make("Corner", SelectedFrame, UDim.new(0, 4))
+			}), "Stroke")Make("Corner", SelectedFrame, UDim.new(0, 6))
 			
 			local TextBoxInput = InsertTheme(Create("TextBox", SelectedFrame, {
 				Size = UDim2.new(0.85, 0, 0.85, 0),
@@ -3171,9 +3270,9 @@ function redzlib:MakeWindow(Configs)
 				Text = "Join Server",
 				Font = Enum.Font.GothamBold,
 				TextSize = 10,
-				BackgroundColor3 = Color3.fromRGB(0, 150, 220),
+				BackgroundColor3 = Theme["Color Theme"],
 				TextColor3 = Theme["Color Text"]
-			}), "Text")
+			}), "JoinButton")
 			Make("Corner", JoinButton, UDim.new(0.5, 0))
 			
 			local clickCooldown = 0
@@ -3221,7 +3320,7 @@ function redzlib:MakeWindow(Configs)
 	
 	CloseButton.Activated:Connect(Window.CloseBtn)
 	MinimizeButton.Activated:Connect(Window.MinimizeBtn)
-	ConfigButton.Activated:Connect(Window.ConfigBtn)
+	CustomButton.Activated:Connect(ToggleTheme)
 
 	return Window
 end
