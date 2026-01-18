@@ -1,4 +1,4 @@
---Minha Versão única - Magnus Modificações 
+--Minha Versão única - Kaelix Modificações 
 --Ser tive outro igual, e meu ramake rsrsrs
 local MarketplaceService = game:GetService("MarketplaceService")
 local UserInputService = game:GetService("UserInputService")
@@ -12,7 +12,7 @@ local PlayerMouse = Player:GetMouse()
 
 local redzlib = {
 	Themes = {
-	Darker = {
+Darker = {
 	["Color Hub 1"] = ColorSequence.new({
 		ColorSequenceKeypoint.new(0.00, Color3.fromRGB(0, 0, 0)),
 		ColorSequenceKeypoint.new(0.50, Color3.fromRGB(0, 0, 0)),
@@ -36,7 +36,7 @@ Dark = {
 	["Color Text"] = Color3.fromRGB(255, 255, 255),
 	["Color Dark Text"] = Color3.fromRGB(255, 255, 255)
 },
-Blue = {
+Black = {
 	["Color Hub 1"] = ColorSequence.new({
 		ColorSequenceKeypoint.new(0.00, Color3.fromRGB(0, 0, 0)),
 		ColorSequenceKeypoint.new(0.50, Color3.fromRGB(0, 0, 0)),
@@ -47,8 +47,6 @@ Blue = {
 	["Color Theme"] = Color3.fromRGB(255, 255, 255),
 	["Color Text"] = Color3.fromRGB(255, 255, 255),
 	["Color Dark Text"] = Color3.fromRGB(255, 255, 255),
-	["Color Dark Blue"] = Color3.fromRGB(255, 255, 255),
-	["Color Hub 9"] = Color3.fromRGB(0, 0, 0),
 	["Color Dark Cyan"] = Color3.fromRGB(255, 255, 255)
 }
 	},
@@ -58,7 +56,7 @@ Blue = {
 	Save = {
 		UISize = {550, 380},
 		TabSize = 160,
-		Theme = "Blue"
+		Theme = "Black"
 	},
 	Settings = {},
 	Connection = {},
@@ -1657,125 +1655,6 @@ function redzlib:MakeWindow(Configs)
 		Name = "Containers"
 	})
 
-	local ParticleContainer = Create("Frame", Containers, {
-		Size = UDim2.new(1, 0, 1, 0),
-		BackgroundTransparency = 1,
-		Name = "ThemeParticles",
-		ZIndex = -5,
-		ClipsDescendants = true
-	})
-	
-	local ParticleConfig = {
-		MaxParticles = 60,
-		SpawnRate = 0.03,
-		ParticleSize = {Min = 1, Max = 1},
-		ParticleSpeed = {Min = 1, Max = 1},
-		ParticleLifetime = 3
-	}
-
-	local ActiveParticles = {}
-	local LastSpawn = 0
-
-	local function CreateCyberpunkParticle()
-		if #ActiveParticles >= ParticleConfig.MaxParticles then return end
-		
-		local containerSize = ParticleContainer.AbsoluteSize
-		local startX = math.random(10, containerSize.X - 10)
-		local startY = containerSize.Y + 20
-		
-		local size = math.random(ParticleConfig.ParticleSize.Min, ParticleConfig.ParticleSize.Max)
-		local speed = math.random(ParticleConfig.ParticleSpeed.Min, ParticleConfig.ParticleSpeed.Max)
-		
-		local particleColor = Color3.fromRGB(255, 255, 255)
-		
-		local Particle = Create("Frame", ParticleContainer, {
-			Size = UDim2.fromOffset(size, size),
-			Position = UDim2.fromOffset(startX, startY),
-			BackgroundColor3 = particleColor,
-			BackgroundTransparency = 0.05,
-			BorderSizePixel = 0
-		})
-		
-		Create("UICorner", Particle, {
-			CornerRadius = UDim.new(0.5, 0)
-		})
-		
-		local Glow = Create("Frame", Particle, {
-			Size = UDim2.new(1, 12, 1, 12),
-			Position = UDim2.new(0.5, 0, 0.5, 0),
-			AnchorPoint = Vector2.new(0.5, 0.5),
-			BackgroundColor3 = particleColor,
-			BackgroundTransparency = 0.4,
-			ZIndex = -1
-		})
-		
-		Create("UICorner", Glow, {
-			CornerRadius = UDim.new(0.5, 0)
-		})
-		
-		local ParticleData = {
-			Frame = Particle,
-			Glow = Glow,
-			StartTime = tick(),
-			Speed = speed,
-			Direction = Vector2.new(0, -speed),
-			OriginalColor = particleColor
-		}
-		
-		Particle.BackgroundTransparency = 1
-		Glow.BackgroundTransparency = 1
-		CreateTween({Particle, "BackgroundTransparency", 0.05, 0.3})
-		CreateTween({Glow, "BackgroundTransparency", 0.4, 0.3})
-		
-		table.insert(ActiveParticles, ParticleData)
-	end
-
-	local function UpdateCyberpunkParticles()
-		local containerSize = ParticleContainer.AbsoluteSize
-		
-		for i = #ActiveParticles, 1, -1 do
-			local particle = ActiveParticles[i]
-			local elapsed = tick() - particle.StartTime
-			if elapsed >= ParticleConfig.ParticleLifetime or 
-			   particle.Frame.Position.Y.Offset < -20 then
-
-				CreateTween({particle.Frame, "BackgroundTransparency", 1, 0.2})
-				CreateTween({particle.Glow, "BackgroundTransparency", 1, 0.2})
-				
-				task.spawn(function()
-					task.wait(0.2)
-					if particle.Frame and particle.Frame.Parent then
-						particle.Frame:Destroy()
-					end
-				end)
-				
-				table.remove(ActiveParticles, i)
-			else
-				local currentPos = particle.Frame.Position
-				local newY = currentPos.Y.Offset + particle.Direction.Y * 0.016
-				
-				particle.Frame.Position = UDim2.fromOffset(currentPos.X.Offset, newY)
-				local lifeRatio = elapsed / ParticleConfig.ParticleLifetime
-				if lifeRatio > 0.6 then
-					local fadeAlpha = 0.05 * (1 - ((lifeRatio - 0.6) / 0.4))
-					particle.Frame.BackgroundTransparency = math.max(1 - fadeAlpha, 0.95)
-				end
-			end
-		end
-	end
-
-	local function SpawnCyberpunkSystem()
-		if tick() - LastSpawn >= ParticleConfig.SpawnRate and MainFrame.Visible then
-			CreateCyberpunkParticle()
-			LastSpawn = tick()
-		end
-	end
-
-	local ParticleConnection = RunService.Heartbeat:Connect(function()
-		UpdateCyberpunkParticles()
-		SpawnCyberpunkSystem()
-	end)
-
 	local ControlSize1, ControlSize2 = MakeDrag(Create("ImageButton", MainFrame, {
 		Size = UDim2.new(0, 35, 0, 35),
 		Position = MainFrame.Size,
@@ -1847,13 +1726,13 @@ function redzlib:MakeWindow(Configs)
 	
 	function Window:CloseBtn()
 		local Dialog = Window:Dialog({
-			Title = "Close",
-			Text = "Deseja realmente fechar o Linux Hub? Ele contém recursos essenciais e fechar agora pode interromper funções importantes, causar falhas ou perder suas configurações. Cuidado antes de prosseguir!",
+			Title = "Fechar",
+			Text = "Deseja realmente fechar o Moon Hub? Ele contém recursos essenciais e fechar agora pode interromper funções importantes, causar falhas ou perder suas configurações. Cuidado antes de prosseguir!",
 			Options = {
-				{"Confirm", function()
+				{"Confirmar", function()
 					ScreenGui:Destroy()
 				end},
-				{"Cancel"}
+				{"Cancelar"}
 			}
 		})
 	end
