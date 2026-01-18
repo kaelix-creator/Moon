@@ -47,6 +47,7 @@ Black = {
 	["Color Theme"] = Color3.fromRGB(255, 255, 255),
 	["Color Text"] = Color3.fromRGB(255, 255, 255),
 	["Color Dark Text"] = Color3.fromRGB(255, 255, 255),
+	["Color Dark Blue"] = Color3.fromRGB(255, 255, 255),
 	["Color Dark Cyan"] = Color3.fromRGB(255, 255, 255)
 }
 	},
